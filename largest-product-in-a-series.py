@@ -26,7 +26,7 @@ for letter in number_string:
 
 r_b = 12
 
-while True:
+while r_b < len(n_l):
 
     check = n_l[r_b] * n_l[r_b - 1] * \
             n_l[r_b - 2] * n_l[r_b - 3] * \
@@ -36,6 +36,9 @@ while True:
             n_l[r_b - 10] * n_l[r_b - 11] * \
             n_l[r_b - 12]
 
-    if ():
-
+    if check > largest_product:
         largest_product = check
+
+        print(largest_product)
+
+    r_b += 1
