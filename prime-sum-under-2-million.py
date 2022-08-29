@@ -15,11 +15,11 @@ def is_prime(num):
 
 
 result = 0
-
-for n in range(1, 2000001):
+n = 1
+while n <= 2000000:
     if is_prime(n):
         print(n)
         result += n
-    n += 1
+    n += 2
 
 print(result)
