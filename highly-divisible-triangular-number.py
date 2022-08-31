@@ -30,5 +30,5 @@ while True:
         print("We Found it: ", triangle_number)
         break
     else:
-        get_next_triangle()
         print(triangle_number, " - Div Amount: ", div_amount)
+        get_next_triangle()
