@@ -1,13 +1,15 @@
-Rows = []
-for i in range(20):
-    Rows.append(i)
+import math
+                    # Correct formula is:    (a + b)! / a! * b!
+a = 20
+b = 20
 
-Cols = []
-for i in range(20):
-    Cols.append(i)
+ab1 = math.factorial(a + b)
 
-while True:
-    for mx in range(1,21):
-        for col in Cols:
-            for row in Rows:
+a2 = math.factorial(a)
+b2 = math.factorial(b)
 
+ab2 = a2 * b2
+
+ab3 = ab1 / ab2
+
+print(ab3)
