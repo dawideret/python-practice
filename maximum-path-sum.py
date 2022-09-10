@@ -26,14 +26,20 @@ def find_route():
     point_a = pointer_a
     point_b = pointer_b
     point_c = pointer_c
+    option_a_col = 0
+    option_b_col = 0
+    option_a1_col = 0
+    option_a2_col = 0
+    option_b1_col = 0
+    option_b2_col = 0
     predicted_total = 0
 
     # Handling Rows Position
-    if point_a[0] + 1 < pyramid[len(pyramid)]:
+    if point_a[0] + 1 < len(pyramid):
         point_b[0] = point_a[0] + 1
     else:
         point_b = point_a
-    if point_a[0] + 2 < pyramid[len(pyramid)]:
+    if point_a[0] + 2 < len(pyramid):
         point_c[0] = point_a[0] + 2
     else:
         point_c = point_a
@@ -44,5 +50,17 @@ def find_route():
     # Handling Columns Position
     if point_a[1] == 0:
         point_b[1] = point_a[1]
-        
+        point_c[1] = point_a[1]
+
+    elif point_a[1] == point_a[len(pyramid[point_a[0]] - 1)]:
+        point_b[1] = point_a[1] - 1
+        point_c[1] = point_a[1] - 2
+
+    else:
+        option_a_col = point_a[1]
+        option_b_col = point_a[1] - 1
+        option_a1_col = point_a[1]
+        option_a2_col = point_a[1] - 1
+        option_b1_col = point_a[1]
+        option_b2_col = point_a[1] - 1
 
