@@ -72,5 +72,9 @@ def find_route():
         option_b1_col = point_a[1]
         option_b2_col = point_a[1] - 1
 
+    # Calculating Highest Route
+    ret = 0
+
+    if pyramid[point_a[0]][point_a[1]] + pyramid[option_a_col[0]][option_a_col[1]] # Continue From Here
 
 find_route()
