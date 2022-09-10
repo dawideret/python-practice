@@ -37,26 +37,34 @@ def find_route():
     # Handling Rows Position
     if point_a[0] + 1 < len(pyramid):
         point_b[0] = point_a[0] + 1
+        print("Test 00")
     else:
         point_b = point_a
+        print("Test 01")
     if point_a[0] + 2 < len(pyramid):
         point_c[0] = point_a[0] + 2
+        print("Test 02")
     else:
         point_c = point_a
+        print("Test 03")
 
     if point_a == (point_b and point_c):
+        print("Test 04")
         return 0  # Remember to address this.
 
     # Handling Columns Position
     if point_a[1] == 0:
-        point_b[1] = point_a[1]
-        point_c[1] = point_a[1]
+        print("Test 05")
+        option_a_col = point_a[1]
+        option_b_col = point_a[1]
 
-    elif point_a[1] == point_a[len(pyramid[point_a[0]] - 1)]:
-        point_b[1] = point_a[1] - 1
-        point_c[1] = point_a[1] - 2
+    elif point_a[1] == len(pyramid[point_a[0]]) - 1:
+        print("Test 06")
+        option_a_col = point_a[1] - 1
+        option_b_col = point_a[1] - 2
 
     else:
+        print("Test 07")
         option_a_col = point_a[1]
         option_b_col = point_a[1] - 1
         option_a1_col = point_a[1]
@@ -64,3 +72,5 @@ def find_route():
         option_b1_col = point_a[1]
         option_b2_col = point_a[1] - 1
 
+
+find_route()
