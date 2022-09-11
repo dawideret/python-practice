@@ -16,66 +16,22 @@ pyramid = [
                             [75]
 ]
 
-pointer_a = [0, 0]
-pointer_b = [0, 0]
-pointer_c = [0, 0]
+start_point = [0, 0]
 total = 0
 
 
-def find_route():
-    point_a = pointer_a
-    point_b = pointer_b
-    point_c = pointer_c
-    option_a_col = 0
-    option_b_col = 0
-    option_a1_col = 0
-    option_a2_col = 0
-    option_b1_col = 0
-    option_b2_col = 0
-    predicted_total = 0
+def find_route(sat_point):  # sat_point is the starting point
+    tot = 0
 
-    # Handling Rows Position
-    if point_a[0] + 1 < len(pyramid):
-        point_b[0] = point_a[0] + 1
-        print("Test 00")
-    else:
-        point_b = point_a
-        print("Test 01")
-    if point_a[0] + 2 < len(pyramid):
-        point_c[0] = point_a[0] + 2
-        print("Test 02")
-    else:
-        point_c = point_a
-        print("Test 03")
+    # INDEX FIRST ( GREEN )
 
-    if point_a == (point_b and point_c):
-        print("Test 04")
-        return 0  # Remember to address this.
+    # INDEX LAST ( BLUE )
 
-    # Handling Columns Position
-    if point_a[1] == 0:
-        print("Test 05")
-        option_a_col = point_a[1]
-        option_b_col = point_a[1]
-        point_b[1] = 0
+    # INDEX +1 ( ORANGE )
 
-    elif point_a[1] == len(pyramid[point_a[0]]) - 1:
-        print("Test 06")
-        option_a_col = point_a[1] - 1
-        option_b_col = point_a[1] - 2
+    # INDEX -1 ( YELLOW )
 
-    else:
-        print("Test 07")
-        option_a_col = point_a[1]
-        option_b_col = point_a[1] - 1
-        option_a1_col = point_a[1]
-        option_a2_col = point_a[1] - 1
-        option_b1_col = point_a[1]
-        option_b2_col = point_a[1] - 1
+    # INDEX +2 or -2 ( RED )
 
-    # Calculating Highest Route
-    ret = 0
 
-    if pyramid[point_a[0]][point_a[1]] + pyramid[option_a_col[0]][option_a_col[1]] # Continue From Here
-
-find_route()
+total += find_route(start_point)
