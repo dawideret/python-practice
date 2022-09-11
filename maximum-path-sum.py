@@ -24,14 +24,24 @@ def find_route(sat_point):  # sat_point is the starting point
     tot = 0
 
     # INDEX FIRST ( GREEN )
+    if sat_point[1] == 0:
+        pass
 
     # INDEX LAST ( BLUE )
+    elif sat_point[1] == len(pyramid[sat_point[0]]) - 1:
+        pass
 
     # INDEX +1 ( ORANGE )
+    elif sat_point[1] == 1:
+        pass
 
     # INDEX -1 ( YELLOW )
+    elif sat_point[1] == len(pyramid[sat_point[0]]) - 1:
+        pass
 
     # INDEX +2 or -2 ( RED )
+    elif sat_point[1] >= 2 and sat_point <= len(pyramid[sat_point[0]]) - 2:
+        pass
 
 
 total += find_route(start_point)
