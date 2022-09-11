@@ -57,6 +57,7 @@ def find_route():
         print("Test 05")
         option_a_col = point_a[1]
         option_b_col = point_a[1]
+        point_b[1] = 0
 
     elif point_a[1] == len(pyramid[point_a[0]]) - 1:
         print("Test 06")
