@@ -23,24 +23,51 @@ total = 0
 def find_route(sat_point):  # sat_point is the starting point
     tot = 0
 
+    opt_1 = [0, 0]
+    opt_2 = [0, 0]
+    opt_3 = [0, 0]
+    opt_4 = [0, 0]
+    opt_5 = [0, 0]
+    opt_6 = [0, 0]
+    opt_7 = [0, 0]
+    opt_8 = [0, 0]
+    opt_9 = [0, 0]
+    opt_10 = [0, 0]
+    opt_11 = [0, 0]
+    opt_12 = [0, 0]
+
     # INDEX FIRST ( GREEN )
     if sat_point[1] == 0:
-        pass
+        opt_1[0] = 0
+        opt_1[1] = 0
 
     # INDEX LAST ( BLUE )
     elif sat_point[1] == len(pyramid[sat_point[0]]) - 1:
-        pass
+        opt_2[0] = len(pyramid[sat_point[0]]) - 1
+        opt_2[1] = len(pyramid[sat_point[0]]) - 1
 
     # INDEX +1 ( ORANGE )
     elif sat_point[1] == 1:
-        pass
+        opt_3[0] = 0
+        opt_3[1] = 0
+        opt_4[0] = 1
+        opt_4[1] = 0
+        opt_5[0] = 1
+        opt_5[1] = 1
 
     # INDEX -1 ( YELLOW )
-    elif sat_point[1] == len(pyramid[sat_point[0]]) - 1:
-        pass
+    elif sat_point[1] == len(pyramid[sat_point[0]]) - 2:
+        opt_6[0] = len(pyramid[sat_point[0]]) - 2
+        opt_6[1] = len(pyramid[sat_point[0]]) - 2
+        opt_7[0] = len(pyramid[sat_point[0]]) - 2
+        opt_7[1] = len(pyramid[sat_point[0]]) - 1
+        opt_8[0] = len(pyramid[sat_point[0]]) - 1
+        opt_8[1] = len(pyramid[sat_point[0]]) - 1
 
-    # INDEX +2 or -2 ( RED )
+    # INDEX +2 or -2 and between ( RED )
     elif sat_point[1] >= 2 and sat_point <= len(pyramid[sat_point[0]]) - 2:
+        opt_9[0] =
+        opt_9[1] = 
         pass
 
 
