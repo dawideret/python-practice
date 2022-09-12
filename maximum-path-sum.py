@@ -19,6 +19,8 @@ pyramid = [
 start_point = [0, 0]
 total = 0
 cords = [0, 0]
+temp_val = 0
+temp_val2 = 0
 
 
 def find_route(sat_point):  # sat_point is the starting point
@@ -68,19 +70,24 @@ def find_route(sat_point):  # sat_point is the starting point
 
     # INDEX +2 or -2 and between ( RED )
     elif 2 <= sat_point[1] <= len(pyramid[sat_point[0]]) - 2:
-        opt_9[0] = sat_point[1] - 1
-        opt_9[1] = sat_point[1] - 2
-        opt_10[0] = sat_point[1] - 1
-        opt_10[1] = sat_point[1] - 1
-        opt_11[0] = sat_point[1]
-        opt_11[1] = sat_point[1] - 1
-        opt_12[0] = sat_point[1]
-        opt_12[1] = sat_point[1]
+        opt_9[0] = sat_point[1] - 2
+        opt_9[1] = sat_point[1] - 3
+        opt_10[0] = sat_point[1] - 2
+        opt_10[1] = sat_point[1] - 2
+        opt_11[0] = sat_point[1] - 1
+        opt_11[1] = sat_point[1] - 2
+        opt_12[0] = sat_point[1] - 1
+        opt_12[1] = sat_point[1] - 1
 
+    # Removing Invalid options &
     # Calculations - Choosing the highest path
     options_to_check = [opt_1, opt_2, opt_3, opt_4, opt_5, opt_6, opt_7, opt_8, opt_9, opt_10, opt_11, opt_12]
-    valid_options = []
+    options_checked = []
     for option in options_to_check:
+        if opt_1[0] >= 0 and opt_1[1] >= 0:
+            options_checked.append(option)
+    valid_options = []
+    for option in options_checked:
         if option[0] != 999:
             valid_options.append(option)
             print("ADDED TO VALID: ", option)
@@ -93,28 +100,34 @@ def find_route(sat_point):  # sat_point is the starting point
                   pyramid[sat_point[0] + 1][option[0]] +\
                   pyramid[sat_point[0] + 2][option[1]]
 
-            ret = option
+            global cords
+            cords = option
 
-            x = [tot, ret]
-
-            print(" RESULT: ", x)
-    return x
+            print(" RESULT: ", cords, tot)
+    return tot
 
 
 def check_the_row():
     global start_point
     global total
     global cords
+    global temp_val
+    global temp_val2
     i = 0
     while True:
         start_point = [0, i]
         print("START POINT: ", start_point)
         print("START P: ", pyramid[start_point[0]][start_point[1]])
-        total_and_cords = find_route(start_point)
+        temp_val2 = find_route(start_point)
 
-        total += total_and_cords[0]
-        cords = total_and_cords[1]
+        if temp_val2 >= temp_val:
+            temp_val = temp_val2
 
         i += 1
         if i >= 15:
             break
+    total += temp_val
+    return temp_val
+
+
+print(check_the_row())
