@@ -16,12 +16,13 @@ pyramid = [
     [75]
 ]
 
-start_point = [0, 2]
+start_point = [0, 0]
 total = 0
 
 
 def find_route(sat_point):  # sat_point is the starting point
     tot = 0
+    x = [0, 0]
 
     opt_1 = [999, 999]
     opt_2 = [999, 999]
@@ -81,9 +82,31 @@ def find_route(sat_point):  # sat_point is the starting point
     for option in options_to_check:
         if option[0] != 999:
             valid_options.append(option)
-    print(valid_options)  # Visual Indicator
-    # !!! Work on Checking which of the leftover paths is the best one !!!
-    return 0
+    # Finding the Best Option
+    for option in valid_options:
+        print(pyramid[option[0]][option[1]])
+        if pyramid[option[0]][option[1]] >= tot:
+
+            tot = pyramid[sat_point[0]][sat_point[1]] +\
+                  pyramid[sat_point[0] + 1][option[0]] +\
+                  pyramid[sat_point[0] + 2][option[1]]
+
+            ret = option
+
+            x = [tot, ret]
+
+            print(x)
+    return x
 
 
-total += find_route(start_point)
+i = 0
+while True:
+    start_point = [0, i]
+    total_and_cords = find_route(start_point)
+
+    total += total_and_cords[0]
+    cords = total_and_cords[1]
+
+    i += 1
+    if i >= 15:
+        break
