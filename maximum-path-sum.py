@@ -18,6 +18,7 @@ pyramid = [
 
 start_point = [0, 0]
 total = 0
+cords = [0, 0]
 
 
 def find_route(sat_point):  # sat_point is the starting point
@@ -44,8 +45,8 @@ def find_route(sat_point):  # sat_point is the starting point
 
     # INDEX LAST ( BLUE )
     elif sat_point[1] == len(pyramid[sat_point[0]]) - 1:
-        opt_2[0] = len(pyramid[sat_point[0]]) - 1
-        opt_2[1] = len(pyramid[sat_point[0]]) - 1
+        opt_2[0] = len(pyramid[sat_point[0]]) - 2
+        opt_2[1] = len(pyramid[sat_point[0]]) - 3
 
     # INDEX +1 ( ORANGE )
     elif sat_point[1] == 1:
@@ -60,10 +61,10 @@ def find_route(sat_point):  # sat_point is the starting point
     elif sat_point[1] == len(pyramid[sat_point[0]]) - 2:
         opt_6[0] = len(pyramid[sat_point[0]]) - 3
         opt_6[1] = len(pyramid[sat_point[0]]) - 4
-        opt_7[0] = len(pyramid[sat_point[0]]) - 2
-        opt_7[1] = len(pyramid[sat_point[0]]) - 1
-        opt_8[0] = len(pyramid[sat_point[0]]) - 1
-        opt_8[1] = len(pyramid[sat_point[0]]) - 1
+        opt_7[0] = len(pyramid[sat_point[0]]) - 3
+        opt_7[1] = len(pyramid[sat_point[0]]) - 3
+        opt_8[0] = len(pyramid[sat_point[0]]) - 2
+        opt_8[1] = len(pyramid[sat_point[0]]) - 3
 
     # INDEX +2 or -2 and between ( RED )
     elif 2 <= sat_point[1] <= len(pyramid[sat_point[0]]) - 2:
@@ -100,16 +101,20 @@ def find_route(sat_point):  # sat_point is the starting point
     return x
 
 
-i = 0
-while True:
-    start_point = [0, i]
-    print("START POINT: ", start_point)
-    print("START P: ", pyramid[start_point[0]][start_point[1]])
-    total_and_cords = find_route(start_point)
+def check_the_row():
+    global start_point
+    global total
+    global cords
+    i = 0
+    while True:
+        start_point = [0, i]
+        print("START POINT: ", start_point)
+        print("START P: ", pyramid[start_point[0]][start_point[1]])
+        total_and_cords = find_route(start_point)
 
-    total += total_and_cords[0]
-    cords = total_and_cords[1]
+        total += total_and_cords[0]
+        cords = total_and_cords[1]
 
-    i += 1
-    if i >= 15:
-        break
+        i += 1
+        if i >= 15:
+            break
