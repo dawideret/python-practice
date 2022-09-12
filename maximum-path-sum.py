@@ -21,7 +21,7 @@ total = 0
 
 
 def find_route(sat_point):  # sat_point is the starting point
-    tot = 0
+    tot = -1
     x = [0, 0]
 
     opt_1 = [999, 999]
@@ -58,8 +58,8 @@ def find_route(sat_point):  # sat_point is the starting point
 
     # INDEX -1 ( YELLOW )
     elif sat_point[1] == len(pyramid[sat_point[0]]) - 2:
-        opt_6[0] = len(pyramid[sat_point[0]]) - 2
-        opt_6[1] = len(pyramid[sat_point[0]]) - 2
+        opt_6[0] = len(pyramid[sat_point[0]]) - 3
+        opt_6[1] = len(pyramid[sat_point[0]]) - 4
         opt_7[0] = len(pyramid[sat_point[0]]) - 2
         opt_7[1] = len(pyramid[sat_point[0]]) - 1
         opt_8[0] = len(pyramid[sat_point[0]]) - 1
@@ -82,10 +82,11 @@ def find_route(sat_point):  # sat_point is the starting point
     for option in options_to_check:
         if option[0] != 999:
             valid_options.append(option)
+            print("ADDED TO VALID: ", option)
     # Finding the Best Option
     for option in valid_options:
-        print(pyramid[option[0]][option[1]])
-        if pyramid[option[0]][option[1]] >= tot:
+        print(" THE IF: ", pyramid[sat_point[0]][option[1]])
+        if pyramid[sat_point[0]][option[1]] >= tot:
 
             tot = pyramid[sat_point[0]][sat_point[1]] +\
                   pyramid[sat_point[0] + 1][option[0]] +\
@@ -95,13 +96,15 @@ def find_route(sat_point):  # sat_point is the starting point
 
             x = [tot, ret]
 
-            print(x)
+            print(" RESULT: ", x)
     return x
 
 
 i = 0
 while True:
     start_point = [0, i]
+    print("START POINT: ", start_point)
+    print("START P: ", pyramid[start_point[0]][start_point[1]])
     total_and_cords = find_route(start_point)
 
     total += total_and_cords[0]
