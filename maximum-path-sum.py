@@ -113,7 +113,9 @@ def check_the_row():
     global cords
     global temp_val
     global temp_val2
+
     i = 0
+    
     while True:
         start_point = [0, i]
         print("START POINT: ", start_point)
