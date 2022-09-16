@@ -126,9 +126,12 @@ def check_the_row():
             temp_val = temp_val2
 
         i += 1
+
         if i >= 15:
             break
+
     total += temp_val
+
     return temp_val
 
 
