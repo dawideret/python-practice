@@ -26,7 +26,6 @@ row = 0
 
 def find_route(sat_point):  # sat_point is the starting point
     tot = -1
-    x = [0, 0]
 
     opt_1 = [999, 999]
     opt_2 = [999, 999]
@@ -118,13 +117,8 @@ def check_the_row():
 
     i = 0
 
-    if cords == [0, 0]:
-        start_point = [0, i]
-    else:
-        start_point = []
-
     while True:
-
+        start_point = [0, i]
         print("START POINT: ", start_point)
         print("START P: ", pyramid[start_point[0]][start_point[1]])
         temp_val2 = find_route(start_point)
@@ -142,4 +136,24 @@ def check_the_row():
     return temp_val
 
 
-print(check_the_row())
+def continue_check():
+    global start_point
+    global total
+    global cords
+    global temp_val
+    global temp_val2
+    global row
+
+    temp_val2 = 0
+
+    st_points = [[row, cords[1] - 1], [row, cords[1]]]
+    for start_point in st_points:
+        temp_val = find_route(start_point)
+        print("New Results: ", temp_val)
+
+        if temp_val >= temp_val2:
+            temp_val2 = temp_val
+
+
+print("Check the row: ", check_the_row())
+print("Continue Check: ", continue_check())
