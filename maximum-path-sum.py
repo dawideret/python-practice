@@ -21,6 +21,7 @@ total = 0
 cords = [0, 0]
 temp_val = 0
 temp_val2 = 0
+row = 0
 
 
 def find_route(sat_point):  # sat_point is the starting point
@@ -113,11 +114,17 @@ def check_the_row():
     global cords
     global temp_val
     global temp_val2
+    global row
 
     i = 0
 
-    while True:
+    if cords == [0, 0]:
         start_point = [0, i]
+    else:
+        start_point = []
+
+    while True:
+
         print("START POINT: ", start_point)
         print("START P: ", pyramid[start_point[0]][start_point[1]])
         temp_val2 = find_route(start_point)
@@ -131,7 +138,7 @@ def check_the_row():
             break
 
     total += temp_val
-
+    row += 3
     return temp_val
 
 
