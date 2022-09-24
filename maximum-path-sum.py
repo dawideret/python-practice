@@ -136,7 +136,7 @@ def check_the_row():
     return temp_val
 
 
-def continue_check():
+def continue_check():  # Move to a lower row
     global start_point
     global total
     global cords
